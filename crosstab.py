@@ -1,11 +1,11 @@
-"""" Flexible features: Can have as many number of columns in the input sheet.
-                    Can have CHANGE PERCENT column anywhere in the input sheet. It will directly omit this column
-                    Columns labels can be different. eg Instead of REFERENCE VALUE column, it can be AVERAGE VALUE column.
-                    The PERCENT, REFERENCE VALUE and VALUE can be in any order.
-                    Can have as many scenarios in the SCENARIOS column
-     Limitations:       The last 3 columns of the input sheet should be PERCENT, REFERENCE VALUE and VALUE in any order (CHANGE PERCENT can be the last column of input sheet)
-     Specifications:    Install xlrd library from the Python documentation
-     Author: Kushagra Mall """"
+# Flexible features: Can have as many number of columns in the input sheet.
+#                    Can have CHANGE PERCENT column anywhere in the input sheet. It will directly omit this column
+#                    Columns labels can be different. eg Instead of REFERENCE VALUE column, it can be AVERAGE VALUE column.
+#                    The PERCENT, REFERENCE VALUE and VALUE can be in any order.
+#                    Can have as many scenarios in the SCENARIOS column
+# Limitations:       The last 3 columns of the input sheet should be PERCENT, REFERENCE VALUE and VALUE in any order (CHANGE PERCENT can be the last column of input sheet)
+# Specifications:    Install xlrd library from the Python documentation
+# Author: Kushagra Mall
 
 
 import xlrd
