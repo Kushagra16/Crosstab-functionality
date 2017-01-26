@@ -5,6 +5,7 @@
 #                    Can have as many scenarios in the SCENARIOS column
 # Limitations:       The last 3 columns of the input sheet should be PERCENT, REFERENCE VALUE and VALUE in any order (CHANGE PERCENT can be the last column of input sheet)
 # Specifications:    Install xlrd library from the Python documentation
+# Author: Kushagra Mall
 
 
 import xlrd
