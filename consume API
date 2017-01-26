@@ -1,0 +1,48 @@
+# Get Data Array -- Generation (MWh)
+Gen = []
+
+# Get Data Array -- Operational Hours
+OpHrs = []
+
+# Get Data Array -- Number of starts
+NumOfStart = []
+
+# Get Data Array -- Hours/Start
+HrPerStart = []
+for k in range(0, len(GenTime)):
+    ThermalGeneration = GVReader.GetHourlyDataArray("generator",GenList,[GenVar[4]],GenTime[k])
+    GenHourlyData = zip(*ThermalGeneration)
+    Gen.append([])
+    OpHrs.append([])
+    NumOfStart.append([])
+    HrPerStart.append([])
+    sum = 0
+    opsum = 0
+    numstart = 0
+    for i in range(0, len(GenHourlyData)):
+        z = []
+        flag = 1
+        z.append(flag)
+        for j in range(0,len(GenHourlyData[i])):
+            sum = sum + GenHourlyData[i][j]
+            if (GenHourlyData[i][j] >0):
+                opsum = opsum + 1
+                flag = 1
+                z.append(flag)
+                if (z[len(z)-1] == 1 and z[len(z)-2] == 0):
+                    numstart = numstart + 1
+            else:
+                flag = 0  
+                z.append(flag)
+                if (z[len(z)-1] == 1 and z[len(z)-2] == 0):
+                    numstart = numstart + 1                  
+        Gen[k].append(sum)
+        OpHrs[k].append(opsum)
+        NumOfStart[k].append(numstart)
+        if (numstart == 0):
+            HrPerStart[k].append(opsum)
+        else:
+            HrPerStart[k].append(opsum/float(numstart))
+        sum = 0
+        opsum = 0
+        numstart = 0
